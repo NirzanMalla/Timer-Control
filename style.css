@@ -10,21 +10,24 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #482e1d;
+    background-color: #0d1f23;
 }
 
 .timer-container {
     text-align: center;
-    background-color: aliceblue;
-    border-radius: 5px;
-    position: fixed;
+    background-color: #2d4a53;
+    position: relative; 
+    margin-bottom: 20px;
+    padding: 20px; 
+    border-radius: 10px;
+    height: 100px;
 
 }
 
 .timer-display {
     margin: 20px, 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #895d2b;
+    color: #afb3b7;
     font-size: 2rem;
 }
 
@@ -33,21 +36,25 @@ body {
     margin: 5px;
     padding: 10px;
     cursor: pointer;
-    background-color: #895d2b;
-    color: #f0daae;
+    background-color: #132e35;
+    color: #ccd0cf;
     border: none;
     border-radius: 5px;
 }
 
 .action-buttons button:hover {
-    background-color: #90553c;
+    background-color: #11212d;
 }
 
-
-.log {
-    margin-top: 50px;
-    font-size: 1.2em;
+.log-container {
+    margin-top: 20px;
+    height: 50vh;
+    width: 50%;
+    overflow:scroll;
+    background-color: #ffff;
+    padding: 10px;
+    font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #f0daae;
+    justify-content: center;
 
 }

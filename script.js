@@ -6,7 +6,7 @@ let hours = 0;
 
 function start() {
   if (!timer) {
-    timer = setInterval(updateTimer, 10);
+    timer = setInterval(updateTimer, 100);
   }
 }
 
@@ -22,12 +22,13 @@ function reset() {
   milliseconds = 0;
   seconds = 0;
   minutes = 0;
+  hours = 0;
   updateTimerDisplay();
   logAction("Reset", updateTimerDisplay());
 }
 
 function updateTimer() {
-  milliseconds += 10;
+  milliseconds += 100;
   if (milliseconds >= 1000) {
     milliseconds = 0;
     seconds++;
@@ -35,7 +36,7 @@ function updateTimer() {
       seconds = 0;
       minutes++;
       if (minutes >= 60) {
-        minutes = 60;
+        minutes = 0;
         hours++;
       }
     }
@@ -44,14 +45,15 @@ function updateTimer() {
 }
 
 function updateTimerDisplay() {
-  const h = formatTime(hours);
-  const m = formatTime(minutes);
-  const s = formatTime(seconds);
-  const ms = formatTime(milliseconds);
+  const hrs = formatTime(hours);
+  const mins = formatTime(minutes);
+  const secs = formatTime(seconds);
+  const msecs = formatTime(milliseconds);
+  const display = `${hrs}:${mins}:${secs}:${msecs}`;
 
-  document.getElementById("timer").innerText = `${h}:${m}:${s}:${ms}`;
+  document.getElementById("timer").innerText = display;
+  return display;
 }
-return `${h}:${m}:${s}:${ms}`;
 
 function formatTime(time) {
   return time < 10 ? `0${time}` : time;
@@ -86,10 +88,16 @@ function backward() {
     const borrowMinutes = Math.ceil(-seconds / 60);
     seconds += 60 * borrowMinutes;
     minutes -= borrowMinutes;
+    if (minutes < 0) {
+      const borrowHours = Math.ceil(-minutes / 60);
+      minutes += 60 * borrowHours;
+      hours -= borrowHours;
+    }
+    if (hours < 0) {
+      reset();
+    }
   }
+
   updateTimerDisplay();
   logAction("Backwarded 10 seconds", updateTimerDisplay());
-  if (minutes < 0) {
-    reset();
-  }
 }

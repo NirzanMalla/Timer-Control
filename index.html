@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <title>Timer Control Interface</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="timer-container">
-        <div class="timer-display" id="timer">00:00:00:000</div>
-        <div class="action-buttons">
-            <button onclick="backward()"><i class="fa fa-backward"></i></button>
-            <button onclick="pause()">Pause</button>
-            <button onclick="start()">Start</button>
-            <button onclick="reset()">Reset</button>
-            <button onclick="forward()"><i class="fa fa-forward"></i></button>
-        </div>
-        
+      <div class="timer-display" id="timer">00:00:00:000</div>
+      <div class="action-buttons">
+        <button onclick="backward()"><i class="fa fa-backward"></i></button>
+        <button onclick="pause()">Pause</button>
+        <button onclick="start()">Start</button>
+        <button onclick="reset()">Reset</button>
+        <button onclick="forward()"><i class="fa fa-forward"></i></button>
+      </div>
     </div>
-    <div class="log" id="log"></div>
-    <script src="./script.js"></script>
 
-</body>
+    <div class="log-container">
+      <h3>Logs</h3>
+      <div class="log" id="log"></div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
 </html>
